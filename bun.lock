@@ -13,14 +13,14 @@
       "name": "docs",
       "version": "0.1.0",
       "dependencies": {
-        "@repo/ui": "*",
+        "@nuxie/ui": "*",
         "next": "^16.0.0",
         "react": "^19.2.0",
         "react-dom": "^19.1.0",
       },
       "devDependencies": {
-        "@repo/eslint-config": "*",
-        "@repo/typescript-config": "*",
+        "@nuxie/eslint-config": "*",
+        "@nuxie/typescript-config": "*",
         "@types/node": "^22.15.3",
         "@types/react": "19.1.0",
         "@types/react-dom": "19.1.1",
@@ -32,14 +32,14 @@
       "name": "web",
       "version": "0.1.0",
       "dependencies": {
-        "@repo/ui": "*",
+        "@nuxie/ui": "*",
         "next": "^16.0.0",
         "react": "^19.2.0",
         "react-dom": "^19.1.0",
       },
       "devDependencies": {
-        "@repo/eslint-config": "*",
-        "@repo/typescript-config": "*",
+        "@nuxie/eslint-config": "*",
+        "@nuxie/typescript-config": "*",
         "@types/node": "^22.15.3",
         "@types/react": "19.1.0",
         "@types/react-dom": "19.1.1",
@@ -48,7 +48,7 @@
       },
     },
     "packages/eslint-config": {
-      "name": "@repo/eslint-config",
+      "name": "@nuxie/eslint-config",
       "version": "0.0.0",
       "devDependencies": {
         "@eslint/js": "^9.34.0",
@@ -64,20 +64,38 @@
         "typescript-eslint": "^8.40.0",
       },
     },
+    "packages/examples": {
+      "name": "@nuxie/examples",
+      "version": "0.0.0",
+      "dependencies": {
+        "@nuxie/ui": "*",
+        "react": "^19.2.0",
+        "react-dom": "^19.1.0",
+      },
+      "devDependencies": {
+        "@nuxie/eslint-config": "*",
+        "@nuxie/typescript-config": "*",
+        "@types/node": "^22.15.3",
+        "@types/react": "19.1.0",
+        "@types/react-dom": "19.1.1",
+        "eslint": "^9.38.0",
+        "typescript": "5.9.2",
+      },
+    },
     "packages/typescript-config": {
-      "name": "@repo/typescript-config",
+      "name": "@nuxie/typescript-config",
       "version": "0.0.0",
     },
     "packages/ui": {
-      "name": "@repo/ui",
+      "name": "@nuxie/ui",
       "version": "0.0.0",
       "dependencies": {
         "react": "^19.2.0",
         "react-dom": "^19.1.0",
       },
       "devDependencies": {
-        "@repo/eslint-config": "*",
-        "@repo/typescript-config": "*",
+        "@nuxie/eslint-config": "*",
+        "@nuxie/typescript-config": "*",
         "@types/node": "^22.15.3",
         "@types/react": "19.1.0",
         "@types/react-dom": "19.1.1",
@@ -187,11 +205,13 @@
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
 
-    "@repo/eslint-config": ["@repo/eslint-config@workspace:packages/eslint-config"],
+    "@nuxie/eslint-config": ["@nuxie/eslint-config@workspace:packages/eslint-config"],
 
-    "@repo/typescript-config": ["@repo/typescript-config@workspace:packages/typescript-config"],
+    "@nuxie/examples": ["@nuxie/examples@workspace:packages/examples"],
 
-    "@repo/ui": ["@repo/ui@workspace:packages/ui"],
+    "@nuxie/typescript-config": ["@nuxie/typescript-config@workspace:packages/typescript-config"],
+
+    "@nuxie/ui": ["@nuxie/ui@workspace:packages/ui"],
 
     "@swc/helpers": ["@swc/helpers@0.5.15", "", { "dependencies": { "tslib": "^2.8.0" } }, "sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g=="],
 
