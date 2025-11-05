@@ -1,135 +1,71 @@
 # Nuxie UI
 
-This Turborepo starter is maintained by the Turborepo core team.
+> Nuxie UI is a component library built on top of shadcn/ui to make it easier to build web based paywalls.
 
-## Using this example
+## Contents
 
-Run the following command:
+This repo is a Turborepo monorepo that ships the Nuxie UI components, examples, and supporting apps.
 
-```sh
-npx create-turbo@latest
+- `apps/docs`: Next.js documentation site that showcases every component and example.
+- `apps/web`: Playground Next.js app for quickly trying components in isolation.
+- `packages/ui`: Core component library (`@nuxie/ui`) that wraps shadcn/ui primitives and exports paywall-specific building blocks.
+- `packages/examples`: Example compositions (`@nuxie/examples`) used by docs and sandboxes.
+- `packages/eslint-config`: Centralized ESLint presets shared across the monorepo.
+- `packages/typescript-config`: Shared TypeScript configuration used by every package and app.
+
+All code is written in TypeScript and styled with Tailwind via shadcn/ui.
+
+## Getting Started
+
+```bash
+bun install
 ```
 
-## What's inside?
+### Run everything
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@nuxie/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@nuxie/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@nuxie/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+```bash
+bun run dev
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+This uses Turborepo to start both Next.js apps with shared caching.
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+### Focused development
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+```bash
+# Docs site (served publicly at https://ui.nuxie.io)
+bun run dev --filter=docs
 
-### Develop
+# Playground app
+bun run dev --filter=web
 
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
+# Component library type checks
+bun run check-types --filter=@nuxie/ui
 ```
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+### Build & Lint
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+```bash
+# Build all apps and packages
+bun run build
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
+# Lint using shared config
+bun run lint
 ```
 
-### Remote Caching
+## Registry & Distribution
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+- The `@nuxie/ui` package mirrors ai-elements’ structure so components can be distributed through a shadcn-compatible registry hosted at `ui.nuxie.io`.
+- `packages/examples` exports ready-to-use snippets that the docs site imports dynamically, keeping previews and install snippets in sync.
+- Future releases will expose a CLI installer that proxies to the hosted registry for quick paywall scaffolding.
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+## Contributing
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+1. Fork & clone the repo.
+2. Create a branch for your change.
+3. Install dependencies with `bun install`.
+4. Run `bun run lint` and `bun run check-types`.
+5. Submit a PR describing the component or example you’ve added.
 
-```
-cd my-turborepo
+## License
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+MIT © Nuxie UI
