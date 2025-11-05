@@ -3,9 +3,7 @@ import { createMDX } from "fumadocs-mdx/next";
 const withMDX = createMDX();
 
 const nextConfig = {
-  experimental: {
-    typedRoutes: true,
-  },
+  typedRoutes: true,
   transpilePackages: [
     "@nuxie/ui",
     "@nuxie/examples",

@@ -4,7 +4,7 @@ import { Tabs, Tab } from "fumadocs-ui/components/tabs";
 import * as examples from "@nuxie/examples";
 import type { ComponentType } from "react";
 
-type ExampleRegistry = typeof examples;
+const registry = examples as Record<string, ComponentType<unknown>>;
 
 type PreviewProps = {
   path: string;
@@ -12,9 +12,7 @@ type PreviewProps = {
 };
 
 export const Preview = async ({ path, className }: PreviewProps) => {
-  const Example = (examples as ExampleRegistry)[path] as
-    | ComponentType
-    | undefined;
+  const Example = registry[path];
 
   if (!Example) {
     throw new Error(`Example not found for path: ${path}`);
