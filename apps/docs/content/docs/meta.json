@@ -1,0 +1,8 @@
+{
+  "title": "Docs",
+  "description": "Documentation for Nuxie UI",
+  "root": true,
+  "pages": [
+    "index"
+  ]
+}

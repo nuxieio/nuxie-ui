@@ -4,12 +4,12 @@
 
 ## Contents
 
-This repo is a Turborepo monorepo that ships the Nuxie UI components, examples, and supporting apps.
+This repo is a Turborepo monorepo that ships the Nuxie UI components, examples, and supporting app.
 
 - `apps/docs`: Next.js documentation site that showcases every component and example.
-- `apps/web`: Playground Next.js app for quickly trying components in isolation.
 - `packages/ui`: Core component library (`@nuxie/ui`) that wraps shadcn/ui primitives and exports paywall-specific building blocks.
 - `packages/examples`: Example compositions (`@nuxie/examples`) used by docs and sandboxes.
+- `packages/shadcn-ui`: Internal fork of shadcn/ui primitives consumed by the component library and registry tooling.
 - `packages/eslint-config`: Centralized ESLint presets shared across the monorepo.
 - `packages/typescript-config`: Shared TypeScript configuration used by every package and app.
 
@@ -27,16 +27,13 @@ bun install
 bun run dev
 ```
 
-This uses Turborepo to start both Next.js apps with shared caching.
+This uses Turborepo to start the docs Next.js app (powered by [Fumadocs](https://fumadocs.dev)) with shared caching.
 
 ### Focused development
 
 ```bash
 # Docs site (served publicly at https://ui.nuxie.io)
 bun run dev --filter=docs
-
-# Playground app
-bun run dev --filter=web
 
 # Component library type checks
 bun run check-types --filter=@nuxie/ui

@@ -11,7 +11,10 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@nuxie/ui": "*",
+    "fumadocs-core": "^16.0.4",
+    "fumadocs-mdx": "^13.0.2",
+    "fumadocs-ui": "^16.0.4",
+    "@nuxie/examples": "*",
     "next": "^16.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.1.0"
@@ -19,6 +22,7 @@
   "devDependencies": {
     "@nuxie/eslint-config": "*",
     "@nuxie/typescript-config": "*",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",

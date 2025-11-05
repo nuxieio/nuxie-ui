@@ -1,0 +1,9 @@
+{
+  "extends": "@nuxie/typescript-config/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": "."
+  },
+  "include": ["components", "hooks", "lib"],
+  "exclude": ["node_modules", "dist"]
+}
